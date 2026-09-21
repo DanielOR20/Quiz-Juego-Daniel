@@ -1,0 +1,177 @@
+{
+  "name": "Quiz Memoria n8n",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "partida-terminada",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -928,
+        144
+      ],
+      "id": "9bfff9ed-c2c2-4bbc-8dd1-0d24fb47ff1b",
+      "name": "Webhook",
+      "webhookId": "c4ef235c-7a10-4873-addc-4c622316624c"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "jugador",
+              "value": "={{ $json.body.jugador }}",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "movimientos",
+              "value": "={{ $json.body.movimientos }}",
+              "type": "number"
+            },
+            {
+              "id": "3",
+              "name": "tiempoSegundos",
+              "value": "={{ $json.body.tiempoSegundos }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -704,
+        144
+      ],
+      "id": "a8e3da11-7ced-4f2e-81e2-4620117d6216",
+      "name": "Extraer Datos"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "cond-1",
+              "leftValue": "={{ $json.movimientos }}",
+              "rightValue": 10,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -480,
+        144
+      ],
+      "id": "a94aa222-c622-412c-a056-4d70067f053f",
+      "name": "Evaluar Record"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"mensaje\": \"¡Rango Maestro! Completaste la partida en solo {{ $('Extraer Datos').item.json.movimientos }} movimientos.\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -240,
+        32
+      ],
+      "id": "20ab28b0-7709-4848-a13a-0b38d641139e",
+      "name": "Respuesta Pro"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"mensaje\": \"¡Buen intento! Necesitaste {{ $('Extraer Datos').item.json.movimientos }} movimientos. Sigue entrenando.\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -240,
+        240
+      ],
+      "id": "c9ba3dbd-c5bf-41c1-8e08-fcb4c9e4f2ea",
+      "name": "Respuesta Normal"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extraer Datos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraer Datos": {
+      "main": [
+        [
+          {
+            "node": "Evaluar Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluar Record": {
+      "main": [
+        [
+          {
+            "node": "Respuesta Pro",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respuesta Normal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "c06e3c46-2f21-4d80-a646-3335cc3af8f7",
+  "meta": {
+    "instanceId": "ad1e005b9ad9a8d511a7b61177d33dfa90586827c0856d455d9192e2818d1921"
+  },
+  "nodeGroups": [],
+  "id": "euUY1P13qC4urscE",
+  "tags": []
+}

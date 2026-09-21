@@ -1,0 +1,199 @@
+{
+  "cartas": [
+    {
+      "id": "1",
+      "simbolo": "⚡",
+      "nombre": "rayo"
+    },
+    {
+      "id": "2",
+      "simbolo": "🔥",
+      "nombre": "fuego"
+    },
+    {
+      "id": "3",
+      "simbolo": "💧",
+      "nombre": "agua"
+    },
+    {
+      "id": "4",
+      "simbolo": "🌿",
+      "nombre": "planta"
+    },
+    {
+      "id": "5",
+      "simbolo": "⭐",
+      "nombre": "estrella"
+    },
+    {
+      "id": "6",
+      "simbolo": "💎",
+      "nombre": "diamante"
+    },
+    {
+      "id": "7",
+      "simbolo": "🌙",
+      "nombre": "luna"
+    },
+    {
+      "id": "8",
+      "simbolo": "🪐",
+      "nombre": "planeta"
+    }
+  ],
+  "puntajes": [
+    {
+      "id": "1",
+      "jugador": "Daniel",
+      "dificultad": "facil",
+      "movimientos": 8,
+      "tiempoSegundos": 24,
+      "fecha": "2026-09-21"
+    },
+    {
+      "jugador": "Daniel",
+      "dificultad": "facil",
+      "movimientos": 9,
+      "tiempoSegundos": 20,
+      "fecha": "2026-09-21",
+      "id": "wKQ327vb3ks"
+    },
+    {
+      "jugador": "Daniel",
+      "dificultad": "facil",
+      "movimientos": 9,
+      "tiempoSegundos": 20,
+      "fecha": "2026-09-21",
+      "id": "QXtDeCq2URk"
+    },
+    {
+      "jugador": "Daniel",
+      "dificultad": "dificil",
+      "movimientos": 22,
+      "tiempoSegundos": 43,
+      "fecha": "2026-09-21",
+      "id": "RMiqgid2naw"
+    },
+    {
+      "jugador": "Daniel",
+      "dificultad": "dificil",
+      "movimientos": 22,
+      "tiempoSegundos": 43,
+      "fecha": "2026-09-21",
+      "id": "pHeZP3OhkS0"
+    },
+    {
+      "jugador": "Daniel",
+      "dificultad": "facil",
+      "movimientos": 8,
+      "tiempoSegundos": 14,
+      "fecha": "2026-09-21",
+      "id": "N4WAVnWF9ac"
+    },
+    {
+      "jugador": "Daniel",
+      "dificultad": "facil",
+      "movimientos": 8,
+      "tiempoSegundos": 14,
+      "fecha": "2026-09-21",
+      "id": "sK7OI3x1-h0"
+    },
+    {
+      "jugador": "Daniel",
+      "dificultad": "facil",
+      "movimientos": 6,
+      "tiempoSegundos": 9,
+      "fecha": "2026-09-21",
+      "id": "qg0CDrnzWKA"
+    },
+    {
+      "jugador": "Daniel",
+      "dificultad": "facil",
+      "movimientos": 6,
+      "tiempoSegundos": 9,
+      "fecha": "2026-09-21",
+      "id": "Q-f0VbN3b3o"
+    },
+    {
+      "jugador": "Josue",
+      "dificultad": "facil",
+      "movimientos": 6,
+      "tiempoSegundos": 9,
+      "fecha": "2026-09-21",
+      "id": "8NRGLTeCrqI"
+    },
+    {
+      "jugador": "Josue",
+      "dificultad": "facil",
+      "movimientos": 6,
+      "tiempoSegundos": 9,
+      "fecha": "2026-09-21",
+      "id": "ESZX_X5LUik"
+    },
+    {
+      "jugador": "BFIHSBA",
+      "dificultad": "facil",
+      "movimientos": 6,
+      "tiempoSegundos": 9,
+      "fecha": "2026-09-21",
+      "id": "hCNvjGV3fok"
+    },
+    {
+      "jugador": "BFIHSBA",
+      "dificultad": "facil",
+      "movimientos": 6,
+      "tiempoSegundos": 9,
+      "fecha": "2026-09-21",
+      "id": "dPIh2Y2s25M"
+    },
+    {
+      "jugador": "Jugador 1",
+      "dificultad": "facil",
+      "movimientos": 5,
+      "tiempoSegundos": 0,
+      "fecha": "2026-09-21",
+      "id": "3lEUL07y8vY"
+    },
+    {
+      "jugador": "Jugador 1",
+      "dificultad": "facil",
+      "movimientos": 5,
+      "tiempoSegundos": 0,
+      "fecha": "2026-09-21",
+      "id": "aWFPTFh8sSg"
+    },
+    {
+      "jugador": "Jugador 1",
+      "dificultad": "facil",
+      "movimientos": 9,
+      "tiempoSegundos": 0,
+      "fecha": "2026-09-21",
+      "id": "PPJx1Fl1Fy0"
+    },
+    {
+      "jugador": "Jugador 1",
+      "dificultad": "facil",
+      "movimientos": 9,
+      "tiempoSegundos": 0,
+      "fecha": "2026-09-21",
+      "id": "p6HSC6SEkLU"
+    },
+    {
+      "jugador": "Jugador 1",
+      "dificultad": "facil",
+      "movimientos": 6,
+      "tiempoSegundos": 0,
+      "fecha": "2026-09-21",
+      "id": "v11y953TQ8k"
+    },
+    {
+      "jugador": "Jugador 1",
+      "dificultad": "facil",
+      "movimientos": 6,
+      "tiempoSegundos": 0,
+      "fecha": "2026-09-21",
+      "id": "6n8Y_lJ2SZ0"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

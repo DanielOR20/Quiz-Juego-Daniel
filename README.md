@@ -1,16 +1,29 @@
-# React + Vite
+# 🧠 Memory Match - Frontend Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Videojuego interactivo de memoria desarrollado en **React** con arquitectura modular, consumo de base de datos local y automatización de resultados mediante **n8n**.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías Utilizadas
+- **React + Vite**
+- **React Router DOM** (Navegación dinámica entre niveles y páginas)
+- **React Context API** (Manejo global del estado de juego, cronómetro y movimientos)
+- **JSON Server** (Persistencia local de cartas y mejores puntajes en `db.json`)
+- **n8n** (Automatización backend para evaluación y clasificación de récords)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📋 Requisitos Cumplidos
+1. **Componentes Modulares:** `Navbar`, `ScoreBoard`, `Card` y `Board` con paso de props y keys únicas.
+2. **Hooks y Estado:** `useState`, `useEffect`, y `useContext` (`GameContext`) para sincronización del temporizador, movimientos y estado de victoria.
+3. **Rutas:** `/` (Inicio/Selector), `/juego/:dificultad` (Ruta con parámetro dinámico) y `/puntajes` (Historial/Leaderboard).
+4. **Consumo de Datos:** Petición `GET` para cargar cartas y puntajes; petición `POST` para registrar resultados en `db.json`.
+5. **Workflow de n8n:** Webhook `POST`, extracción de métricas, bifurcación lógica con nodo `IF` y respuesta dinámica según desempeño del jugador.
 
-## React Compiler
+## 🔗 URL del Webhook de n8n
+- **Endpoint:** `http://localhost:5678/webhook/partida-terminada`
+- **Método:** `POST`
+- **Flujo exportado:** `workflow.json`
+- **Captura de evidencia:** `n8n-workflow.png`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Instrucciones de Ejecución
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Instalar dependencias:**
+   ```bash
+   npm install

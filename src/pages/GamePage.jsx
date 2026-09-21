@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGame } from '../context/GameContext';
-import { getCartas, guardarPuntaje, notificarN8N } from '../services/gameService';
+import { getCartas, guardarPuntaje, notificarN8N } from '../services/GameService';
 import ScoreBoard from '../components/ScoreBoard';
 import Board from '../components/Board';
 
