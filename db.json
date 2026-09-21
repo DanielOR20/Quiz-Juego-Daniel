@@ -1,199 +1,54 @@
 {
   "cartas": [
     {
-      "id": "1",
-      "simbolo": "⚡",
-      "nombre": "rayo"
+      "id": 1,
+      "nombre": "KTM SX 450",
+      "imagen": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&auto=format&fit=crop&q=80"
     },
     {
-      "id": "2",
-      "simbolo": "🔥",
-      "nombre": "fuego"
+      "id": 2,
+      "nombre": "Yamaha YZ 250",
+      "imagen": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&auto=format&fit=crop&q=80"
     },
     {
-      "id": "3",
-      "simbolo": "💧",
-      "nombre": "agua"
+      "id": 3,
+      "nombre": "Honda CRF 450",
+      "imagen": "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&auto=format&fit=crop&q=80"
     },
     {
-      "id": "4",
-      "simbolo": "🌿",
-      "nombre": "planta"
+      "id": 4,
+      "nombre": "Kawasaki KX",
+      "imagen": "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?w=400&auto=format&fit=crop&q=80"
     },
     {
-      "id": "5",
-      "simbolo": "⭐",
-      "nombre": "estrella"
+      "id": 5,
+      "nombre": "Husqvarna FC",
+      "imagen": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=400&auto=format&fit=crop&q=80"
     },
     {
-      "id": "6",
-      "simbolo": "💎",
-      "nombre": "diamante"
+      "id": 6,
+      "nombre": "GasGas MC",
+      "imagen": "https://images.unsplash.com/photo-1571127236794-81c0bbfe1ce3?w=400&auto=format&fit=crop&q=80"
     },
     {
-      "id": "7",
-      "simbolo": "🌙",
-      "nombre": "luna"
+      "id": 7,
+      "nombre": "Suzuki RM-Z",
+      "imagen": "https://images.unsplash.com/photo-1568772585472-74d306b994d5?w=400&auto=format&fit=crop&q=80"
     },
     {
-      "id": "8",
-      "simbolo": "🪐",
-      "nombre": "planeta"
+      "id": 8,
+      "nombre": "Enduro Rally Pro",
+      "imagen": "https://images.unsplash.com/photo-1558980664-769d59546b3d?w=400&auto=format&fit=crop&q=80"
     }
   ],
   "puntajes": [
     {
-      "id": "1",
+      "id": 1,
       "jugador": "Daniel",
       "dificultad": "facil",
       "movimientos": 8,
       "tiempoSegundos": 24,
       "fecha": "2026-09-21"
-    },
-    {
-      "jugador": "Daniel",
-      "dificultad": "facil",
-      "movimientos": 9,
-      "tiempoSegundos": 20,
-      "fecha": "2026-09-21",
-      "id": "wKQ327vb3ks"
-    },
-    {
-      "jugador": "Daniel",
-      "dificultad": "facil",
-      "movimientos": 9,
-      "tiempoSegundos": 20,
-      "fecha": "2026-09-21",
-      "id": "QXtDeCq2URk"
-    },
-    {
-      "jugador": "Daniel",
-      "dificultad": "dificil",
-      "movimientos": 22,
-      "tiempoSegundos": 43,
-      "fecha": "2026-09-21",
-      "id": "RMiqgid2naw"
-    },
-    {
-      "jugador": "Daniel",
-      "dificultad": "dificil",
-      "movimientos": 22,
-      "tiempoSegundos": 43,
-      "fecha": "2026-09-21",
-      "id": "pHeZP3OhkS0"
-    },
-    {
-      "jugador": "Daniel",
-      "dificultad": "facil",
-      "movimientos": 8,
-      "tiempoSegundos": 14,
-      "fecha": "2026-09-21",
-      "id": "N4WAVnWF9ac"
-    },
-    {
-      "jugador": "Daniel",
-      "dificultad": "facil",
-      "movimientos": 8,
-      "tiempoSegundos": 14,
-      "fecha": "2026-09-21",
-      "id": "sK7OI3x1-h0"
-    },
-    {
-      "jugador": "Daniel",
-      "dificultad": "facil",
-      "movimientos": 6,
-      "tiempoSegundos": 9,
-      "fecha": "2026-09-21",
-      "id": "qg0CDrnzWKA"
-    },
-    {
-      "jugador": "Daniel",
-      "dificultad": "facil",
-      "movimientos": 6,
-      "tiempoSegundos": 9,
-      "fecha": "2026-09-21",
-      "id": "Q-f0VbN3b3o"
-    },
-    {
-      "jugador": "Josue",
-      "dificultad": "facil",
-      "movimientos": 6,
-      "tiempoSegundos": 9,
-      "fecha": "2026-09-21",
-      "id": "8NRGLTeCrqI"
-    },
-    {
-      "jugador": "Josue",
-      "dificultad": "facil",
-      "movimientos": 6,
-      "tiempoSegundos": 9,
-      "fecha": "2026-09-21",
-      "id": "ESZX_X5LUik"
-    },
-    {
-      "jugador": "BFIHSBA",
-      "dificultad": "facil",
-      "movimientos": 6,
-      "tiempoSegundos": 9,
-      "fecha": "2026-09-21",
-      "id": "hCNvjGV3fok"
-    },
-    {
-      "jugador": "BFIHSBA",
-      "dificultad": "facil",
-      "movimientos": 6,
-      "tiempoSegundos": 9,
-      "fecha": "2026-09-21",
-      "id": "dPIh2Y2s25M"
-    },
-    {
-      "jugador": "Jugador 1",
-      "dificultad": "facil",
-      "movimientos": 5,
-      "tiempoSegundos": 0,
-      "fecha": "2026-09-21",
-      "id": "3lEUL07y8vY"
-    },
-    {
-      "jugador": "Jugador 1",
-      "dificultad": "facil",
-      "movimientos": 5,
-      "tiempoSegundos": 0,
-      "fecha": "2026-09-21",
-      "id": "aWFPTFh8sSg"
-    },
-    {
-      "jugador": "Jugador 1",
-      "dificultad": "facil",
-      "movimientos": 9,
-      "tiempoSegundos": 0,
-      "fecha": "2026-09-21",
-      "id": "PPJx1Fl1Fy0"
-    },
-    {
-      "jugador": "Jugador 1",
-      "dificultad": "facil",
-      "movimientos": 9,
-      "tiempoSegundos": 0,
-      "fecha": "2026-09-21",
-      "id": "p6HSC6SEkLU"
-    },
-    {
-      "jugador": "Jugador 1",
-      "dificultad": "facil",
-      "movimientos": 6,
-      "tiempoSegundos": 0,
-      "fecha": "2026-09-21",
-      "id": "v11y953TQ8k"
-    },
-    {
-      "jugador": "Jugador 1",
-      "dificultad": "facil",
-      "movimientos": 6,
-      "tiempoSegundos": 0,
-      "fecha": "2026-09-21",
-      "id": "6n8Y_lJ2SZ0"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
