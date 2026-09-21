@@ -58,13 +58,16 @@ export default function Board({ cartas, onJuegoCompletado }) {
   };
 
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(85px, 1fr))',
-      gap: '14px',
-      maxWidth: '650px',
-      margin: '0 auto'
-    }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+        gap: '18px',
+        maxWidth: '850px',
+        margin: '0 auto',
+        paddingBottom: '2rem'
+      }}
+    >
       {cartasBarajadas.map((carta) => (
         <Card
           key={carta.instanciaId}

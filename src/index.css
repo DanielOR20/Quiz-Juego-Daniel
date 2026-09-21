@@ -1,8 +1,67 @@
+/* Cuadrícula fija de cartas */
 .card-container {
   perspective: 1000px;
-  height: 130px;
-  /* antes era 110px */
+  width: 100%;
+  height: 180px; /* Tamaño mucho más grande (antes 110px) */
   cursor: pointer;
-  border-radius: 12px;
-  transition: transform 0.15s ease;
+  position: relative;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.card-container.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Ambas caras deben ocupar el 100% exacto y ocultar la otra */
+.card-front, .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-back {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border: 2px solid #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transform: rotateY(0deg);
+  font-size: 2.8rem; /* Emoji de moto más grande */
+}
+
+.card-front {
+  background-color: #0f172a;
+  border: 2px solid #38bdf8;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Imagen ajustada sin deformar */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Borde verde si ya hizo pareja */
+.card-container.flipped .card-inner .card-front {
+  border-color: #38bdf8;
 }
