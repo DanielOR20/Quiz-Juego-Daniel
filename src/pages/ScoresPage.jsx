@@ -1,37 +1,84 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getPuntajes } from '../services/gameService';
+import { getPuntajes, eliminarPuntajes } from '../services/GameService';
 
 export default function ScoresPage() {
   const [puntajes, setPuntajes] = useState([]);
+  const [filtro, setFiltro] = useState('todos');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const cargar = async () => {
+    try {
+      setLoading(true);
+      const data = await getPuntajes();
+      const ordenados = data.sort(
+        (a, b) => a.movimientos - b.movimientos || a.tiempoSegundos - b.tiempoSegundos
+      );
+      setPuntajes(ordenados);
+    } catch (err) {
+      setError(err.message || 'Error al obtener puntajes');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const cargar = async () => {
-      try {
-        setLoading(true);
-        const data = await getPuntajes();
-        // Ordenar por menos movimientos y menor tiempo
-        const ordenados = data.sort((a, b) => a.movimientos - b.movimientos || a.tiempoSegundos - b.tiempoSegundos);
-        setPuntajes(ordenados);
-      } catch (err) {
-        setError(err.message || 'Error al obtener puntajes');
-      } finally {
-        setLoading(false);
-      }
-    };
     cargar();
   }, []);
 
+  const handleBorrarHistorial = async () => {
+    if (!window.confirm('¿Estás seguro de que deseas vaciar el historial de puntajes?')) return;
+    try {
+      setLoading(true);
+      const ids = puntajes.map((p) => p.id);
+      await eliminarPuntajes(ids);
+      setPuntajes([]);
+    } catch (err) {
+      alert('Error al vaciar los puntajes: ' + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const puntajesFiltrados = puntajes.filter((p) => {
+    if (filtro === 'todos') return true;
+    return p.dificultad === filtro;
+  });
+
   return (
-    <div style={{ maxWidth: '700px', margin: '2rem auto', padding: '1rem', color: '#fff' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+    <div style={{ maxWidth: '750px', margin: '2rem auto', padding: '1rem', color: '#fff' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
         <h2>🏆 Tabla de Mejores Puntajes</h2>
-        <Link to="/" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 'bold' }}>← Volver al Inicio</Link>
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          {puntajes.length > 0 && (
+            <button
+              onClick={handleBorrarHistorial}
+              style={{ background: '#ef4444', color: '#fff', border: 'none', padding: '0.45rem 0.8rem', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem' }}
+            >
+              Vaciar Historial
+            </button>
+          )}
+          <Link to="/" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 'bold' }}>
+            ← Volver al Inicio
+          </Link>
+        </div>
       </div>
 
-      {loading && <p style={{ color: '#94a3b8' }}>Cargando puntajes...</p>}
+      {/* Barra de Filtros */}
+      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
+        {['todos', 'facil', 'medio', 'dificil'].map((modo) => (
+          <button
+            key={modo}
+            className={`filter-btn ${filtro === modo ? 'active' : ''}`}
+            onClick={() => setFiltro(modo)}
+          >
+            {modo.charAt(0).toUpperCase() + modo.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      {loading && <p style={{ color: '#94a3b8' }}>Actualizando tabla...</p>}
       {error && <p style={{ color: '#f87171' }}>{error}</p>}
 
       {!loading && !error && (
@@ -47,14 +94,14 @@ export default function ScoresPage() {
             </tr>
           </thead>
           <tbody>
-            {puntajes.length === 0 ? (
+            {puntajesFiltrados.length === 0 ? (
               <tr>
                 <td colSpan="6" style={{ textAlign: 'center', padding: '1.5rem', color: '#94a3b8' }}>
-                  Aún no hay partidas registradas. ¡Sé el primero en jugar!
+                  No hay partidas registradas para este filtro.
                 </td>
               </tr>
             ) : (
-              puntajes.map((p, index) => (
+              puntajesFiltrados.map((p, index) => (
                 <tr key={p.id || index} style={{ borderBottom: '1px solid #334155' }}>
                   <td style={{ padding: '0.75rem 1rem', fontWeight: 'bold' }}>{index + 1}</td>
                   <td style={{ padding: '0.75rem 1rem' }}>{p.jugador}</td>

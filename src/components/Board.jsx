@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
 import { useGame } from '../context/GameContext';
+import { sounds } from '../services/soundService';
 
 export default function Board({ cartas, onJuegoCompletado }) {
   const { registrarMovimiento } = useGame();
@@ -9,14 +10,12 @@ export default function Board({ cartas, onJuegoCompletado }) {
   const [emparejadas, setEmparejadas] = useState([]);
   const [bloquearTablero, setBloquearTablero] = useState(false);
 
-  // Inicializar y mezclar las parejas al recibir las cartas
   useEffect(() => {
     if (cartas && cartas.length > 0) {
       const duplicadas = [...cartas, ...cartas].map((c, index) => ({
         ...c,
         instanciaId: `${c.id}-${index}`
       }));
-      // Mezclar aleatoriamente
       const barajadas = duplicadas.sort(() => Math.random() - 0.5);
       setCartasBarajadas(barajadas);
       setEmparejadas([]);
@@ -24,10 +23,10 @@ export default function Board({ cartas, onJuegoCompletado }) {
     }
   }, [cartas]);
 
-  // Manejo de la lógica al seleccionar cartas
   const handleCardClick = (carta) => {
     if (bloquearTablero || seleccionadas.some((s) => s.instanciaId === carta.instanciaId)) return;
 
+    sounds.flip();
     const nuevasSeleccionadas = [...seleccionadas, carta];
     setSeleccionadas(nuevasSeleccionadas);
 
@@ -37,9 +36,11 @@ export default function Board({ cartas, onJuegoCompletado }) {
       const [primera, segunda] = nuevasSeleccionadas;
 
       if (primera.id === segunda.id) {
+        sounds.match();
         setEmparejadas((prev) => {
           const actualizadas = [...prev, primera.id];
           if (actualizadas.length === cartas.length) {
+            sounds.victory();
             setTimeout(() => onJuegoCompletado(), 500);
           }
           return actualizadas;
@@ -47,10 +48,11 @@ export default function Board({ cartas, onJuegoCompletado }) {
         setSeleccionadas([]);
         setBloquearTablero(false);
       } else {
+        sounds.mismatch();
         setTimeout(() => {
           setSeleccionadas([]);
           setBloquearTablero(false);
-        }, 1000);
+        }, 900);
       }
     }
   };
@@ -58,8 +60,8 @@ export default function Board({ cartas, onJuegoCompletado }) {
   return (
     <div style={{
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))',
-      gap: '12px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(85px, 1fr))',
+      gap: '14px',
       maxWidth: '650px',
       margin: '0 auto'
     }}>

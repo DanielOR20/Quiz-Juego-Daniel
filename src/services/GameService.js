@@ -48,3 +48,11 @@ export const notificarN8N = async (datosPartida) => {
         return null;
     }
 };
+
+export const eliminarPuntajes = async (ids) => {
+    await Promise.all(
+        ids.map((id) =>
+            fetch(`${API_URL}/puntajes/${id}`, { method: 'DELETE' })
+        )
+    );
+};

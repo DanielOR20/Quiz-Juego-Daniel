@@ -1,12 +1,78 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Efecto Flip 3D para las Cartas */
+.card-container {
+  perspective: 1000px;
+  height: 110px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: transform 0.15s ease;
 }
 
-body {
-  margin: 0;
-  background-color: #0f172a;
-  color: #f8fafc;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+.card-container:active {
+  transform: scale(0.95);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: 12px;
+}
+
+.card-container.flipped .card-inner,
+.card-container.matched .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  user-select: none;
+  font-size: 2.3rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.card-back {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border: 2px solid #475569;
+  color: #38bdf8;
+}
+
+.card-front {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  transform: rotateY(180deg);
+  border: 2px solid #60a5fa;
+}
+
+.card-container.matched .card-front {
+  background: linear-gradient(135deg, #059669, #10b981);
+  border: 2px solid #34d399;
+}
+
+/* Badges de filtros en la tabla */
+.filter-btn {
+  background: #334155;
+  color: #cbd5e1;
+  border: 1px solid #475569;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.filter-btn.active {
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  border-color: #38bdf8;
 }
